@@ -1,0 +1,27 @@
+package com.example.petprojectjus.domain.interactor
+
+import com.example.petprojectjus.domain.model.GetMovieModel
+import com.example.petprojectjus.domain.repository.MovieRepository
+
+class MovieInteractor(
+    private val movieRepository: MovieRepository,
+
+    ) {
+
+    suspend fun getPopularMovieList(page: Int): List<GetMovieModel> =
+        movieRepository.getPopularMovieList(page)
+
+    suspend fun getMovie(movieId: Int): GetMovieModel = movieRepository.getMovieDetail(movieId)
+
+    suspend fun getUpcomingMovieList(page: Int): List<GetMovieModel> =
+        movieRepository.getUpcomingMovieList(page)
+
+    suspend fun getTopRatedMovieList(page: Int): List<GetMovieModel> =
+        movieRepository.getTopRatedMovieList(page)
+
+    suspend fun getNowPlayingMovies(page: Int): List<GetMovieModel> =
+        movieRepository.getNowPlayingMovies(page)
+
+    suspend fun getTrendingMovies(page: Int): List<GetMovieModel> =
+        movieRepository.getTrendingMovies(page)
+}
