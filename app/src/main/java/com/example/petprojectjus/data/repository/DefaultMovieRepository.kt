@@ -1,7 +1,6 @@
 package com.example.petprojectjus.data.repository
 
 import com.example.petprojectjus.data.mapper.MovieModelMapper
-import com.example.petprojectjus.data.network.MovieService
 import com.example.petprojectjus.data.network.RetrofitInstance
 import com.example.petprojectjus.domain.model.GetMovieModel
 import com.example.petprojectjus.domain.repository.MovieRepository
@@ -12,13 +11,15 @@ class DefaultMovieRepository(
 ) : MovieRepository {
 
     override suspend fun getPopularMovieList(page: Int): List<GetMovieModel> {
-        val response = movieService.getPostApi().getPopularMovies()
-        if (response.isSuccessful) {
-            val result = response.body()?.getMovieModels
-            if (!result.isNullOrEmpty()) {
-                return result.map { movieModelMapper.toGetMovieModel(it) }
-            }
-        }
+//        val response = movieService.getPostApi().getPopularMovies()
+//        if (response.isSuccessful) {
+//            val result = response.body()?.getMovieModels
+//            if (!result.isNullOrEmpty()) {
+//                return result.map { movieModelMapper.toGetMovieModel(it) }
+//            }
+//        }
+        val movieList = movieService.getPostApi().getPopularMovies().getMovieModels
+        return movieList.map { movieModelMapper.toGetMovieModel(it) }
     }
 
     /**

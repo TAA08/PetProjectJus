@@ -18,7 +18,7 @@ interface MovieService {
     suspend fun getPopularMovies(
         @Query("api_key") apiKey: String = API_KEY,
         @Query("language") language: String = LANGUAGE,
-    ): Response<GetMoviesListResponse>
+    ): GetMoviesListResponse
 
     @GET("movie/top_rated")
     suspend fun getTopRatedMovies(

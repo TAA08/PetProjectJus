@@ -3,25 +3,25 @@ package com.example.petprojectjus.presentation.movie.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.example.petprojectjus.databinding.PopularMovieItemBinding
+import com.example.petprojectjus.databinding.TopRatedMovieItemBinding
 import com.example.petprojectjus.presentation.IMAGE_URL
 import com.example.petprojectjus.presentation.movie.GetMovieDvo
 import com.squareup.picasso.Picasso
 
-class PopularMovieAdapter :
-    ListAdapter<GetMovieDvo, PopularMovieViewHolder>(PopularMovieDiffCallback) {
+class TopRatedMovieAdapter :
+    ListAdapter<GetMovieDvo, TopRatedMovieViewHolder>(TopRatedMovieDiffCallback) {
 
     var onMovieClickListener: OnMovieClickListener? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularMovieViewHolder {
-        return PopularMovieViewHolder(
-            PopularMovieItemBinding.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopRatedMovieViewHolder {
+        return TopRatedMovieViewHolder(
+            TopRatedMovieItemBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
     }
 
-    override fun onBindViewHolder(holder: PopularMovieViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TopRatedMovieViewHolder, position: Int) {
         val movie = getItem(position)
 
         with(holder.binding) {
@@ -35,8 +35,4 @@ class PopularMovieAdapter :
             }
         }
     }
-
-
-
-
 }
