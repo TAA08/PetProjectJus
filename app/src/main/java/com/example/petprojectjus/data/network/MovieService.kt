@@ -38,6 +38,20 @@ interface MovieService {
         @Path("time_window") timeWindow : String = WEEK
     ): GetMoviesListResponse
 
+    @GET("movie/{movie_id}/similar")
+    suspend fun getSimilarMovies(
+        @Path("movie_id") id: Int,
+        @Query("api_key") apiKey: String = API_KEY,
+        @Query("language") language: String = LANGUAGE,
+    ): GetMoviesListResponse
+
+    @GET("movie/{movie_id}/recommendations")
+    suspend fun getRecommendationsMovies(
+        @Path("movie_id") id: Int,
+        @Query("api_key") apiKey: String = API_KEY,
+        @Query("language") language: String = LANGUAGE,
+    ): GetMoviesListResponse
+
     companion object {
 
         private const val API_KEY = "2672c5e5006041431f2be6a17b6f7ceb"

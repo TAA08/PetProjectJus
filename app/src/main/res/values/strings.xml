@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">PetProjectJus</string>
+    <string name="popular">Популярные</string>
+    <string name="all_movie"><![CDATA[Все >]]></string>
+    <string name="movie_poster">Постер фильма</string>
+    <string name="film_name">Название фильма</string>
+    <string name="movie_genre">Жанр фильма</string>
+    <string name="now_in_theatres">Сейчас в кино</string>
+    <string name="trending">В Тренде</string>
+    <string name="top_rated">Топ Рейтинга</string>
+    <string name="upcoming">Скоро выйдут</string>
+    <string name="sign"><![CDATA[>]]></string>
 </resources>

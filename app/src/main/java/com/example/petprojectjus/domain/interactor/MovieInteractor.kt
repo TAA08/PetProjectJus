@@ -24,4 +24,10 @@ class MovieInteractor(
 
     suspend fun getTrendingMovies(page: Int): List<GetMovieModel> =
         movieRepository.getTrendingMovies(page)
+
+    suspend fun getSimilarMovies(movieId: Int): List<GetMovieModel> =
+        movieRepository.getSimilarMovies(movieId)
+
+    suspend fun getRecommendationsMovies(movieId: Int): List<GetMovieModel> =
+        movieRepository.getRecommendationsMovies(movieId)
 }

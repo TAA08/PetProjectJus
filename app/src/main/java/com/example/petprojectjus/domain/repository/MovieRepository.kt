@@ -15,4 +15,8 @@ interface MovieRepository {
     suspend fun getNowPlayingMovies(page: Int): List<GetMovieModel>
 
     suspend fun getTrendingMovies(page: Int): List<GetMovieModel>
+
+    suspend fun getSimilarMovies(movieId: Int): List<GetMovieModel>
+
+    suspend fun getRecommendationsMovies(movieId: Int): List<GetMovieModel>
 }

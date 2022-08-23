@@ -13,12 +13,28 @@ class DefaultMovieRepository(
 
     override suspend fun getPopularMovieList(page: Int): List<GetMovieModel> {
         val response = movieService.getPostApi().getPopularMovies()
-        if (response.isSuccessful){
+        if (response.isSuccessful) {
             val result = response.body()?.getMovieModels
-            if (!result.isNullOrEmpty()){
+            if (!result.isNullOrEmpty()) {
                 return result.map { movieModelMapper.toGetMovieModel(it) }
             }
         }
+    }
+
+    /**
+     * get List of Similar Movies when navigate movie detail
+     */
+    override suspend fun getSimilarMovies(movieId: Int): List<GetMovieModel> {
+        val movieList = movieService.getPostApi().getSimilarMovies(movieId).getMovieModels
+        return movieList.map { movieModelMapper.toGetMovieModel(it) }
+    }
+
+    /**
+     * get List of Recommendations Movies when navigate movie detail
+     */
+    override suspend fun getRecommendationsMovies(movieId: Int): List<GetMovieModel> {
+        val movieList = movieService.getPostApi().getRecommendationsMovies(movieId).getMovieModels
+        return movieList.map { movieModelMapper.toGetMovieModel(it) }
     }
 
     override suspend fun getUpcomingMovieList(page: Int): List<GetMovieModel> {

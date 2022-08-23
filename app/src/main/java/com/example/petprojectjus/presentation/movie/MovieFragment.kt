@@ -1,4 +1,7 @@
 package com.example.petprojectjus.presentation.movie
 
-class MovieFragment {
+import androidx.fragment.app.Fragment
+import com.example.petprojectjus.R
+
+class MovieFragment : Fragment(R.layout.movie_fragment) {
 }
