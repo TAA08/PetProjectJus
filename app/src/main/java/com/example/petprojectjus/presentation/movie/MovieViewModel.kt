@@ -18,6 +18,19 @@ class MovieViewModel(
     val viewState: LiveData<State>
         get() = _viewState
 
+    /**
+     * выбор функции взамисимости от moviesType
+     */
+    suspend fun getMovies(moviesType: MoviesType){
+        when(moviesType){
+            MoviesType.POPULAR -> getPopularMovieList()
+            MoviesType.UPCOMING -> getUpcomingMovieList()
+            MoviesType.PLAYING -> getNowPlayingMovieList()
+            MoviesType.TOPRATED -> getTopRatedMovieList()
+            MoviesType.TRENDING -> getTrendingMovieList()
+        }
+    }
+
     private suspend fun getPopularMovieList() {
         viewModelScope.launch {
             val movieList = movieInteractor.getPopularMovieList(page = 1)

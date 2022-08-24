@@ -1,10 +1,12 @@
 package com.example.petprojectjus.di
 
+import com.example.petprojectjus.data.mapper.MovieModelMapper
 import com.example.petprojectjus.data.network.MovieService
 import com.example.petprojectjus.data.network.RetrofitInstance
 import com.example.petprojectjus.data.repository.DefaultMovieRepository
 import com.example.petprojectjus.domain.interactor.MovieInteractor
 import com.example.petprojectjus.domain.repository.MovieRepository
+import com.example.petprojectjus.presentation.movie.GetMovieDvoMapper
 import com.example.petprojectjus.presentation.movie.MovieViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -25,7 +27,7 @@ val repositoryModule = module {
 }
 
 val interactorModule = module {
-    single { MovieInteractor(movieRepository = get()) }
+    factory { MovieInteractor(movieRepository = get()) }
 }
 
 val viewModelModule = module {
@@ -37,4 +39,9 @@ val viewModelModule = module {
     }
 }
 
-val appModule = networkModule + repositoryModule + interactorModule + viewModelModule
+val mapperModule = module {
+    factory { MovieModelMapper() }
+    factory { GetMovieDvoMapper() }
+}
+
+val appModule = networkModule + repositoryModule + interactorModule + viewModelModule + mapperModule

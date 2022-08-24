@@ -8,6 +8,6 @@ object Error : State()
 
 object Progress : State()
 
-class Data(
+data class Data(
     val movieList: List<GetMovieDvo>
 ) : State()
