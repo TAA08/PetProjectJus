@@ -34,7 +34,7 @@
         android:textColor="@color/white"/>
 
     <TextView
-        android:id="@+id/movie_genre"
+        android:id="@+id/movie_release"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

@@ -18,7 +18,7 @@ class DefaultMovieRepository(
 //                return result.map { movieModelMapper.toGetMovieModel(it) }
 //            }
 //        }
-        val movieList = movieService.getPostApi().getPopularMovies().getMovieModels
+        val movieList = movieService.getMovieApi().getPopularMovies().getMovieModels
         return movieList.map { movieModelMapper.toGetMovieModel(it) }
     }
 
@@ -26,7 +26,7 @@ class DefaultMovieRepository(
      * get List of Similar Movies when navigate movie detail
      */
     override suspend fun getSimilarMovies(movieId: Int): List<GetMovieModel> {
-        val movieList = movieService.getPostApi().getSimilarMovies(movieId).getMovieModels
+        val movieList = movieService.getMovieApi().getSimilarMovies(movieId).getMovieModels
         return movieList.map { movieModelMapper.toGetMovieModel(it) }
     }
 
@@ -34,27 +34,27 @@ class DefaultMovieRepository(
      * get List of Recommendations Movies when navigate movie detail
      */
     override suspend fun getRecommendationsMovies(movieId: Int): List<GetMovieModel> {
-        val movieList = movieService.getPostApi().getRecommendationsMovies(movieId).getMovieModels
+        val movieList = movieService.getMovieApi().getRecommendationsMovies(movieId).getMovieModels
         return movieList.map { movieModelMapper.toGetMovieModel(it) }
     }
 
     override suspend fun getUpcomingMovieList(page: Int): List<GetMovieModel> {
-        val movieList = movieService.getPostApi().getUpcomingMovies().getMovieModels
+        val movieList = movieService.getMovieApi().getUpcomingMovies().getMovieModels
         return movieList.map { movieModelMapper.toGetMovieModel(it) }
     }
 
     override suspend fun getNowPlayingMovies(page: Int): List<GetMovieModel> {
-        val movieList = movieService.getPostApi().getNowPlayingMovies().getMovieModels
+        val movieList = movieService.getMovieApi().getNowPlayingMovies().getMovieModels
         return movieList.map { movieModelMapper.toGetMovieModel(it) }
     }
 
     override suspend fun getTrendingMovies(page: Int): List<GetMovieModel> {
-        val movieList = movieService.getPostApi().getTrendingMovies().getMovieModels
+        val movieList = movieService.getMovieApi().getTrendingMovies().getMovieModels
         return movieList.map { movieModelMapper.toGetMovieModel(it) }
     }
 
     override suspend fun getTopRatedMovieList(page: Int): List<GetMovieModel> {
-        val movieList = movieService.getPostApi().getTopRatedMovies().getMovieModels
+        val movieList = movieService.getMovieApi().getTopRatedMovies().getMovieModels
         return movieList.map { movieModelMapper.toGetMovieModel(it) }
     }
 
