@@ -1,6 +1,7 @@
 package com.example.petprojectjus
 
 import android.util.Log
+import com.example.petprojectjus.login.data.network.LoginService
 import com.example.petprojectjus.movie.data.network.MovieService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -17,6 +18,15 @@ class RetrofitInstance {
             .client(getOkHttp())
             .build()
         return retrofit.create(MovieService::class.java)
+    }
+
+    fun getLoginApi(): LoginService {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(getOkHttp())
+            .build()
+        return retrofit.create(LoginService::class.java)
     }
 
     private fun getOkHttp(): OkHttpClient {
