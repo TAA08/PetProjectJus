@@ -1,6 +1,7 @@
-package com.example.petprojectjus.movie.data.network
+package com.example.petprojectjus
 
 import android.util.Log
+import com.example.petprojectjus.movie.data.network.MovieService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

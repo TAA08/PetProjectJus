@@ -2,7 +2,7 @@ package com.example.petprojectjus.movie.di
 
 import com.example.petprojectjus.movie.data.mapper.MovieModelMapper
 import com.example.petprojectjus.movie.data.network.MovieService
-import com.example.petprojectjus.movie.data.network.RetrofitInstance
+import com.example.petprojectjus.RetrofitInstance
 import com.example.petprojectjus.movie.data.repository.DefaultMovieRepository
 import com.example.petprojectjus.movie.domain.interactor.MovieInteractor
 import com.example.petprojectjus.movie.domain.repository.MovieRepository
