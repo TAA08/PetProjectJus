@@ -10,4 +10,7 @@
     <string name="top_rated">Топ Рейтинга</string>
     <string name="upcoming">Скоро выйдут</string>
     <string name="sign"><![CDATA[>]]></string>
+    <string name="login">Авторизация</string>
+    <string name="user_name">User name</string>
+    <string name="password">Password</string>
 </resources>

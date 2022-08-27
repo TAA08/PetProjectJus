@@ -65,6 +65,11 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
         initAndObserveViewModel()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
     private fun getMovies(type: MoviesType) {
         viewModel.getMovies(type)
     }
@@ -102,12 +107,6 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
                 }
             }
         }
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 
     companion object {

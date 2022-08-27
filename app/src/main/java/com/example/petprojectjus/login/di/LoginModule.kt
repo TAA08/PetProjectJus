@@ -14,6 +14,7 @@ import org.koin.dsl.module
 val LoginModule = module {
 
     //data
+    factory { com.example.petprojectjus.login.data.mapper.LoginModelMapper() }
     single { getLoginApi() }
     single<LoginRepository> {
         DefaultLoginRepository(

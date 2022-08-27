@@ -25,7 +25,7 @@ class DefaultLoginRepository(
                 requestToken = requestToken ?: ""
             )
         val token = loginApi.createSessionWithLogin(loginResponse = loginResponse)
-        val session = loginApi.createSession(tokenResponse = token)
+        val session = loginApi.createSession(tokenResponse = token )
         return session.sessionId ?: ""
     }
 
