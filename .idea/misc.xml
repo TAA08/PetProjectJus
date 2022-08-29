@@ -3,16 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/drawable-v24/selector_bottom_navigation.xml" value="0.178" />
+        <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/drawable/ic_baseline_local_movies_24.xml" value="0.178" />
         <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.178" />
         <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/layout/fragment_celebrities.xml" value="0.22777777777777777" />
         <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/layout/fragment_login.xml" value="0.25416666666666665" />
         <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/layout/fragment_movie.xml" value="0.25416666666666665" />
+        <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/layout/fragment_search.xml" value="0.22777777777777777" />
+        <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/layout/fragment_tmdb.xml" value="0.22777777777777777" />
+        <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/layout/fragment_tv_show.xml" value="0.22777777777777777" />
         <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/layout/login_fragment.xml" value="0.4" />
         <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/layout/movie_fragment.xml" value="0.4" />
         <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/layout/playing_in_theatre_item.xml" value="0.253125" />
         <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/layout/popular_movie_item.xml" value="0.25416666666666665" />
         <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/layout/top_rated_movie_item.xml" value="0.253125" />
+        <entry key="..\:/SteamLibrary/PetProjectJus/app/src/main/res/menu/menu.xml" value="0.22777777777777777" />
       </map>
     </option>
   </component>

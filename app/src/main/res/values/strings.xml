@@ -13,4 +13,9 @@
     <string name="login">Авторизация</string>
     <string name="user_name">User name</string>
     <string name="password">Password</string>
+    <string name="movie">Movie</string>
+    <string name="tv_show">TV Show</string>
+    <string name="celebrity">Celebrity</string>
+    <string name="search">Search</string>
+    <string name="account">Account</string>
 </resources>

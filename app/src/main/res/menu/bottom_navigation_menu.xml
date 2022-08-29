@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/movie"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_local_movies_24"
+        android:title="@string/movie"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/tv_show"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_tv_24"
+        android:title="@string/tv_show"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/celebrity"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_people_24"
+        android:title="@string/celebrity"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/search"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/search"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/account"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/account"
+        app:showAsAction="ifRoom" />
+
+</menu>

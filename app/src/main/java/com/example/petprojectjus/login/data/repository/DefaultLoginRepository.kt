@@ -18,8 +18,7 @@ class DefaultLoginRepository(
         val requestToken = loginApi.createRequestToken().token
         val userName = loginResponseMapper.toGetLoginResponse(loginModel).userName
         val password = loginResponseMapper.toGetLoginResponse(loginModel).password
-        val loginResponse =
-            LoginResponse(
+        val loginResponse = LoginResponse(
                 userName = userName,
                 password = password,
                 requestToken = requestToken ?: ""
