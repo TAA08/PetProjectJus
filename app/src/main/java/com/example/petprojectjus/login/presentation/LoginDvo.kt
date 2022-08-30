@@ -1,6 +1,6 @@
 package com.example.petprojectjus.login.presentation
 
-data class LoginDVO(
+data class LoginDvo(
     val userName: String,
     val password: String
 )

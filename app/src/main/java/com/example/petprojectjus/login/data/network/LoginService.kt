@@ -1,8 +1,8 @@
 package com.example.petprojectjus.login.data.network
 
-import com.example.petprojectjus.login.data.network.DTO.LoginResponse
-import com.example.petprojectjus.login.data.network.DTO.SessionResponse
-import com.example.petprojectjus.login.data.network.DTO.TokenResponse
+import com.example.petprojectjus.login.data.network.Dto.LoginRequest
+import com.example.petprojectjus.login.data.network.Dto.SessionRequest
+import com.example.petprojectjus.login.data.network.Dto.TokenResponse
 import retrofit2.http.*
 
 interface LoginService {
@@ -21,7 +21,7 @@ interface LoginService {
     suspend fun createSession(
         @Query("api_key") apiKey: String = API_KEY,
         @Body tokenResponse: TokenResponse
-    ) : SessionResponse
+    ) : SessionRequest
 
     /**
      * Отправляем полученный токен в GET запросе и вводим данные username, password
@@ -29,13 +29,13 @@ interface LoginService {
     @POST("authentication/token/validate_with_login")
     suspend fun createSessionWithLogin(
         @Query("api_key") apiKey: String = API_KEY,
-        @Body loginResponse: LoginResponse
+        @Body loginRequest: LoginRequest
     ) : TokenResponse
 
     @DELETE("authentication/session")
     suspend fun deleteSession(
         @Query("api_key") apiKey: String = API_KEY,
-        @Body sessionResponse : SessionResponse
+        @Body sessionRequest : SessionRequest
     )
 
     companion object {

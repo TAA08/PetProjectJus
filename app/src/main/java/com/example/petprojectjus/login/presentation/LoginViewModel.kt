@@ -18,7 +18,7 @@ class LoginViewModel(
     val viewState: LiveData<State>
         get() = _viewState
 
-    fun login(loginDVO: LoginDVO) {
+    fun login(loginDVO: LoginDvo) {
         viewModelScope.launch {
             val session = loginInteractor.loginUser(
                 loginModel = loginModelMapper.toGetLoginModelMapper(loginDVO)

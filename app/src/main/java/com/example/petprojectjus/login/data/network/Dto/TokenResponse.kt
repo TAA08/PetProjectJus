@@ -1,4 +1,4 @@
-package com.example.petprojectjus.login.data.network.DTO
+package com.example.petprojectjus.login.data.network.Dto
 
 import com.google.gson.annotations.SerializedName
 

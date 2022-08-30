@@ -1,8 +1,8 @@
-package com.example.petprojectjus.login.data.network.DTO
+package com.example.petprojectjus.login.data.network.Dto
 
 import com.google.gson.annotations.SerializedName
 
-data class SessionResponse (
+data class SessionRequest (
     @SerializedName("success")
     var success: Boolean?,
     @SerializedName("session_id")

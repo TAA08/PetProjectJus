@@ -48,7 +48,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun onButtonLoginClicked() {
         bwLogin.setOnClickListener {
             if (!etUserName.text.isNullOrBlank() && !etPassword.text.isNullOrBlank()) {
-                val data = LoginDVO(
+                val data = LoginDvo(
                     userName = etUserName.text.toString().trim(),
                     password = etPassword.text.toString().trim(),
                 )

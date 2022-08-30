@@ -1,8 +1,8 @@
-package com.example.petprojectjus.login.data.network.DTO
+package com.example.petprojectjus.login.data.network.Dto
 
 import com.google.gson.annotations.SerializedName
 
-data class LoginResponse(
+data class LoginRequest(
     /**
      * НЕ ЗАБЫВАЙ ЧТО ИМЕНА ПАРАМЕТРОВ ДОЛЖНЫ СОВПАДТЬ С JSON т.к. ключи не совпадут
      */
