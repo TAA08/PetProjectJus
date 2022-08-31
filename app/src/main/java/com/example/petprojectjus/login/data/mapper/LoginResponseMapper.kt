@@ -21,6 +21,13 @@ class LoginResponseMapper {
             sessionId = from.sessionId
         )
     }
+
+    fun toSetSessionResponse(from: SessionModel): SessionRequest {
+        return SessionRequest(
+            success = true,
+            sessionId = from.sessionId
+        )
+    }
 }
 
 /**
