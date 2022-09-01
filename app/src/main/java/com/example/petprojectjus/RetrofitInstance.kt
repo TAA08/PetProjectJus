@@ -3,6 +3,7 @@ package com.example.petprojectjus
 import android.util.Log
 import com.example.petprojectjus.login.data.network.LoginService
 import com.example.petprojectjus.movie.data.network.MovieService
+import com.example.petprojectjus.tvshows.data.network.TvService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -27,6 +28,15 @@ class RetrofitInstance {
             .client(getOkHttp())
             .build()
         return retrofit.create(LoginService::class.java)
+    }
+
+    fun getTvApi(): TvService {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(getOkHttp())
+            .build()
+        return retrofit.create(TvService::class.java)
     }
 
     private fun getOkHttp(): OkHttpClient {
