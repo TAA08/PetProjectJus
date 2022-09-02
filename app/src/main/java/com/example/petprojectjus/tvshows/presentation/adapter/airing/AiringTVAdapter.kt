@@ -28,7 +28,7 @@ class AiringTVAdapter : ListAdapter<GetTVDvo, AiringTVViewHolder>(TVDiffCallback
         with(holder.binding) {
             movieTitle.text = tv.name
             movieRelease.text = tv.firstAirDate
-            Picasso.get().load(IMAGE_URL + tv.posterPath).into(movieImage)
+            Picasso.get().load(IMAGE_URL + tv.backdropPath).into(movieImage)
 
             root.setOnClickListener {
                 onTvClickListener?.onTVClicked(tv)
