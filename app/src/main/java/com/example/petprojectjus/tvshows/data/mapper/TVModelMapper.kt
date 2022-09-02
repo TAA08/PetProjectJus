@@ -7,19 +7,20 @@ class TVModelMapper {
 
     fun toGetTVModel(from: GetTVResponse): GetTV {
         return GetTV(
-            backdrop_path = from.backdropPath ?: "",
-            first_air_date = from.firstAirDate ?: "",
-            genre_ids = from.genreIds ?: emptyList(),
+            backdropPath = from.backdropPath ?: "",
+            firstAirDate = from.firstAirDate ?: "",
+            genreIds = from.genreIds ?: emptyList(),
             id = from.id ?: -1,
             name = from.name ?: "",
-            origin_country = from.originCountry ?: emptyList(),
-            original_language = from.originalLanguage ?: "",
-            original_name = from.originalName ?: "",
+            originCountry = from.originCountry ?: emptyList(),
+            originalLanguage = from.originalLanguage ?: "",
+            originalName = from.originalName ?: "",
             overview = from.overview ?: "",
             popularity = from.popularity ?: -1.0,
-            poster_path = from.posterPath ?: "",
-            vote_average = from.voteAverage ?: -1.0,
-            vote_count = from.voteCount ?: -1
+            posterPath = from.posterPath ?: "",
+            voteAverage = from.voteAverage ?: -1.0,
+            voteCount = from.voteCount ?: -1,
+            adult = from.adult?: false
         )
     }
 }

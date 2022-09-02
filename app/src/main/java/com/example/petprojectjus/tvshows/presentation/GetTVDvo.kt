@@ -1,7 +1,10 @@
-package com.example.petprojectjus.tvshows.domain.model
+package com.example.petprojectjus.tvshows.presentation
 
-data class GetTV(
-    val adult: Boolean,
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class GetTVDvo(
     val backdropPath: String,
     val firstAirDate: String,
     val genreIds: List<Int>,
@@ -15,4 +18,4 @@ data class GetTV(
     val posterPath: String,
     val voteAverage: Double,
     val voteCount: Int
-)
+) : Parcelable

@@ -6,11 +6,11 @@ class TVInteractor(
     private val tvRepository: TvRepository
 ) {
 
-    fun getPopularTV(page: Int) = tvRepository.getPopularTV(page)
+    suspend fun getPopularTV(page: Int) = tvRepository.getPopularTV(page)
 
-    fun getTopRated(page: Int) = tvRepository.getTopRated(page)
+    suspend fun getTopRated(page: Int) = tvRepository.getTopRated(page)
 
-    fun getAiringToday(page: Int) = tvRepository.getAiringToday(page)
+    suspend fun getAiringToday(page: Int) = tvRepository.getAiringToday(page)
 
-    fun getTrendingTv(page: Int) = tvRepository.getTrendingTv(page)
+    suspend fun getTrendingTv(page: Int) = tvRepository.getTrendingTv(page)
 }

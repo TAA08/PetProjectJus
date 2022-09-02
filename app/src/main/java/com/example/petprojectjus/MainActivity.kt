@@ -3,12 +3,10 @@ package com.example.petprojectjus
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import com.example.petprojectjus.R
 import com.example.petprojectjus.celebrity.presentation.CelebrityFragment
 import com.example.petprojectjus.celebrity.presentation.SearchFragment
 import com.example.petprojectjus.celebrity.presentation.TMFragment
-import com.example.petprojectjus.celebrity.presentation.TVFragment
+import com.example.petprojectjus.tvshows.presentation.TVFragment
 import com.example.petprojectjus.databinding.ActivityMainBinding
 import com.example.petprojectjus.login.presentation.LoginFragment
 import com.example.petprojectjus.movie.presentation.movie.MovieFragment

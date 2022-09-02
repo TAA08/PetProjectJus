@@ -9,29 +9,28 @@ import retrofit2.http.Query
 interface TvService {
 
     @GET("$TV/popular")
-    fun getPopularShows(
+    suspend fun getPopularShows(
         @Query("api_key") apiKey: String = API_KEY,
         @Query("language") language: String = LANGUAGE
     ): GetTVListResponse
 
     @GET("$TV/top_rated")
-    fun getTopRated(
+    suspend fun getTopRated(
         @Query("api_key") apiKey: String = API_KEY,
         @Query("language") language: String = LANGUAGE
     ): GetTVListResponse
 
     @GET("$TV/airing_today")
-    fun getAiringToday(
+    suspend fun getAiringToday(
         @Query("api_key") apiKey: String = API_KEY,
         @Query("language") language: String = LANGUAGE
     ): GetTVListResponse
 
     @GET("trending/{media_type}/{time_window}")
-    fun getTrendingTv(
-        @Query("api_key") apiKey: String = API_KEY,
-        @Query("language") language: String = LANGUAGE,
+    suspend fun getTrendingTv(
         @Path("media_type") mediaType: String = TV,
-        @Path("time_window") timeWindow: String = WEEK
+        @Path("time_window") timeWindow: String = WEEK,
+        @Query("api_key") apiKey: String = API_KEY,
     ): GetTVListResponse
 
     companion object {

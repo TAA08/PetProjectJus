@@ -4,6 +4,8 @@ package com.example.petprojectjus.tvshows.data.network.Dto
 import com.google.gson.annotations.SerializedName
 
 class GetTVResponse(
+    @SerializedName("adult")
+    var adult: Boolean?,
     @SerializedName("backdrop_path")
     var backdropPath: String?,
     @SerializedName("first_air_date")

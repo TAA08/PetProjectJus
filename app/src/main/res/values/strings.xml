@@ -18,4 +18,5 @@
     <string name="celebrity">Celebrity</string>
     <string name="search">Search</string>
     <string name="account">Account</string>
+    <string name="airing_today">Сегодня в эфире</string>
 </resources>
