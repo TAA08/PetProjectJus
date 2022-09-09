@@ -1,6 +1,7 @@
 package com.example.petprojectjus
 
 import android.util.Log
+import com.example.petprojectjus.celebrity.data.network.CelebrityService
 import com.example.petprojectjus.login.data.network.LoginService
 import com.example.petprojectjus.movie.data.network.MovieService
 import com.example.petprojectjus.tvshows.data.network.TvService
@@ -37,6 +38,15 @@ class RetrofitInstance {
             .client(getOkHttp())
             .build()
         return retrofit.create(TvService::class.java)
+    }
+
+    fun getCelebrityApi(): CelebrityService {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(getOkHttp())
+            .build()
+        return retrofit.create(CelebrityService::class.java)
     }
 
     private fun getOkHttp(): OkHttpClient {

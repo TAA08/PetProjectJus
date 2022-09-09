@@ -19,4 +19,9 @@
     <string name="search">Search</string>
     <string name="account">Account</string>
     <string name="airing_today">Сегодня в эфире</string>
+    <string name="celebrity_name">Имя человека</string>
+    <string name="celebrity_work">Актер</string>
+    <string name="celebrity_image">Аватарка человека</string>
+    <string name="people_name">Имя человека</string>
+    <string name="people_work">Актер</string>
 </resources>

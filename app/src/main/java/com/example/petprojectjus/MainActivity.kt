@@ -3,7 +3,7 @@ package com.example.petprojectjus
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.petprojectjus.celebrity.presentation.CelebrityFragment
+import com.example.petprojectjus.celebrity.presentation.celebrity.CelebrityFragment
 import com.example.petprojectjus.celebrity.presentation.SearchFragment
 import com.example.petprojectjus.celebrity.presentation.TMFragment
 import com.example.petprojectjus.tvshows.presentation.TVFragment

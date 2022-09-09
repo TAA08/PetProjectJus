@@ -1,22 +1,42 @@
 package com.example.petprojectjus.celebrity.data.network
 
+import com.google.gson.annotations.SerializedName
+
 data class KnownForDto(
+    @SerializedName("adult")
     var adult: Boolean?,
-    var backdrop_path: String?,
-    var first_air_date: String?,
-    var genre_ids: List<Int>?,
+    @SerializedName("backdrop_path")
+    var backdropPath: String?,
+    @SerializedName("first_air_date")
+    var firstAirDate: String?,
+    @SerializedName("genre_ids")
+    var genreIds: List<Int>?,
+    @SerializedName("id")
     var id: Int?,
-    var media_type: String?,
+    @SerializedName("media_type")
+    var mediaType: String?,
+    @SerializedName("name")
     var name: String?,
-    var origin_country: List<String>?,
-    var original_language: String?,
-    var original_name: String?,
-    var original_title: String?,
+    @SerializedName("origin_country")
+    var originCountry: List<String>?,
+    @SerializedName("original_language")
+    var originalLanguage: String?,
+    @SerializedName("original_name")
+    var originalName: String?,
+    @SerializedName("original_title")
+    var originalTitle: String?,
+    @SerializedName("overview")
     var overview: String?,
-    var poster_path: String?,
-    var release_date: String?,
+    @SerializedName("poster_path")
+    var posterPath: String?,
+    @SerializedName("release_date")
+    var releaseDate: String?,
+    @SerializedName("title")
     var title: String?,
+    @SerializedName("video")
     var video: Boolean?,
-    var vote_average: Double?,
-    var vote_count: Int?
+    @SerializedName("vote_average")
+    var voteAverage: Double?,
+    @SerializedName("vote_count")
+    var voteCount: Int?
 )
