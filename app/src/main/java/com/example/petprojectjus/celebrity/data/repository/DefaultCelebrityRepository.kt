@@ -12,13 +12,23 @@ class DefaultCelebrityRepository(
 ) : CelebrityRepository {
 
     override suspend fun getPopularCelebrity(): List<Celebrity> {
-        val list = api.getPopularCelebrity().celebrityDto
-        return list?.map { celebrityModelMapper.toGetCelebrityModel(it) } ?: emptyList()
+        return try {
+            val list = api.getPopularCelebrity().celebrityDto
+            list?.map { celebrityModelMapper.toGetCelebrityModel(it) } ?: emptyList()
+        }catch (e : Exception){
+            emptyList()
+        }
+
     }
 
     override suspend fun getTrendingCelebrity(): List<Celebrity> {
-        val list = api.getTrendingCelebrity().celebrityDto
-        return list?.map { celebrityModelMapper.toGetCelebrityModel(it) } ?: emptyList()
+        return try {
+            val list = api.getTrendingCelebrity().celebrityDto
+            return list?.map { celebrityModelMapper.toGetCelebrityModel(it) } ?: emptyList()
+        }
+        catch (e : Exception){
+            emptyList()
+        }
     }
 
     override suspend fun getCelebrityInfo(celebrityId: Int): CelebrityInfo {

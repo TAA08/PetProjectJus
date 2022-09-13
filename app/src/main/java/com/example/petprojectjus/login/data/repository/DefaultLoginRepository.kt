@@ -13,17 +13,22 @@ class DefaultLoginRepository(
 ) : LoginRepository {
 
     override suspend fun loginUser(loginModel: LoginModel): String {
-        val requestToken = loginApi.createRequestToken().token
-        val userName = loginResponseMapper.toGetLoginResponse(loginModel).userName
-        val password = loginResponseMapper.toGetLoginResponse(loginModel).password
-        val loginRequest = LoginRequest(
-            userName = userName,
-            password = password,
-            requestToken = requestToken ?: ""
-        )
-        val token = loginApi.createSessionWithLogin(loginRequest = loginRequest)
-        val session = loginApi.createSession(tokenResponse = token)
-        return session.sessionId ?: ""
+        return try {
+            val requestToken = loginApi.createRequestToken().token
+            val userName = loginResponseMapper.toGetLoginResponse(loginModel).userName
+            val password = loginResponseMapper.toGetLoginResponse(loginModel).password
+            val loginRequest = LoginRequest(
+                userName = userName,
+                password = password,
+                requestToken = requestToken ?: ""
+            )
+            val token = loginApi.createSessionWithLogin(loginRequest = loginRequest)
+            val session = loginApi.createSession(tokenResponse = token)
+            session.sessionId ?: ""
+        } catch (e: Exception) {
+            return ""
+        }
+
     }
 
     override suspend fun logoutUser(sessionModel: SessionModel) {

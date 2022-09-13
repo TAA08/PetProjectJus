@@ -24,4 +24,5 @@
     <string name="celebrity_image">Аватарка человека</string>
     <string name="people_name">Имя человека</string>
     <string name="people_work">Актер</string>
+    <string name="vote">20000</string>
 </resources>

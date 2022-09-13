@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding
         get() = _binding ?: throw RuntimeException("MainActivity is null")
 
-    private val bnView get()  = binding.bottomNavigation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,25 +24,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.main_container, LoginFragment.newInstance())
-            .addToBackStack(null)
+            .add(R.id.main_container, LoginFragment.newInstance())
+            .addToBackStack(LoginFragment.NAME)
             .commit()
 
-        bnView.setOnItemSelectedListener {
-            when(it.itemId){
-                R.id.movie -> setCurrentFragment(MovieFragment.newInstance())
-                R.id.celebrity -> setCurrentFragment(CelebrityFragment.newInstance())
-                R.id.tv_show -> setCurrentFragment(TVFragment.newInstance())
-                R.id.search -> setCurrentFragment(SearchFragment.newInstance())
-                R.id.account -> setCurrentFragment(TMFragment.newInstance())
-            }
-            true
-        }
+
     }
 
-    private fun setCurrentFragment(fragment: Fragment) =
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_container, fragment)
-            .addToBackStack(null)
-            .commit()
+
 }

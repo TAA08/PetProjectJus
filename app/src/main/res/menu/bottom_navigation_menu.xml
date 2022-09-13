@@ -6,6 +6,7 @@
         android:id="@+id/movie"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_local_movies_24"
+        android:menuCategory="secondary"
         android:title="@string/movie"
         app:showAsAction="always" />
 
@@ -13,6 +14,7 @@
         android:id="@+id/tv_show"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_tv_24"
+        android:menuCategory="secondary"
         android:title="@string/tv_show"
         app:showAsAction="ifRoom" />
 
@@ -20,6 +22,7 @@
         android:id="@+id/celebrity"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_people_24"
+        android:menuCategory="secondary"
         android:title="@string/celebrity"
         app:showAsAction="ifRoom" />
 
@@ -27,6 +30,7 @@
         android:id="@+id/search"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_search_24"
+        android:menuCategory="secondary"
         android:title="@string/search"
         app:showAsAction="ifRoom" />
 
@@ -34,6 +38,7 @@
         android:id="@+id/account"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_person_24"
+        android:menuCategory="secondary"
         android:title="@string/account"
         app:showAsAction="ifRoom" />
 

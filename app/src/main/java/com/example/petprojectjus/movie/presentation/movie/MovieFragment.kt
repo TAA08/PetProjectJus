@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.example.petprojectjus.R
 import com.example.petprojectjus.databinding.FragmentMovieBinding
+import com.example.petprojectjus.login.presentation.LoginFragment
 import com.example.petprojectjus.movie.presentation.MovieData
 import com.example.petprojectjus.movie.presentation.Error
 import com.example.petprojectjus.movie.presentation.Progress
@@ -54,15 +56,39 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /**
-         * надо как-то подправить
-         */
-        getMovies(MoviesType.POPULAR)
-        getMovies(MoviesType.PLAYING)
-        getMovies(MoviesType.TRENDING)
-        getMovies(MoviesType.TOPRATED)
-        getMovies(MoviesType.UPCOMING)
+        // перебор констант в enum
+        for (movieType in MoviesType.values()) {
+            getMovies(movieType)
+        }
+
+        tvPlayingNowMovie.setOnClickListener {
+            launchEntertainmentMovieFragment(MoviesType.PLAYING)
+        }
+
+        tvPopularMovie.setOnClickListener {
+            launchEntertainmentMovieFragment(MoviesType.POPULAR)
+        }
+
+        tvUpcomingMovie.setOnClickListener {
+            launchEntertainmentMovieFragment(MoviesType.UPCOMING)
+        }
+
+        tvTrendingMovie.setOnClickListener {
+            launchEntertainmentMovieFragment(MoviesType.TRENDING)
+        }
+
+        tvTopRatedMovie.setOnClickListener {
+            launchEntertainmentMovieFragment(MoviesType.TOPRATED)
+        }
+
         initAndObserveViewModel()
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    retryLogin()
+                }
+            })
     }
 
     override fun onDestroy() {
@@ -107,6 +133,17 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
                 }
             }
         }
+    }
+
+    private fun launchEntertainmentMovieFragment(moviesType: MoviesType) {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, EntertainmentMovieFragment.newInstance(moviesType))
+            .addToBackStack(EntertainmentMovieFragment.NAME)
+            .commit()
+    }
+
+    private fun retryLogin(){
+        requireActivity().supportFragmentManager.popBackStack(LoginFragment.NAME, 0)
     }
 
     companion object {

@@ -40,11 +40,12 @@ class TVFragment : Fragment(R.layout.fragment_tv_show) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
-        getTVType(TVType.TRENDING)
-        getTVType(TVType.POPULAR)
-        getTVType(TVType.TOP_RATED)
-        getTVType(TVType.AIRING_TODAY)
+        for (tvType in TVType.values()) {
+            getTVType(tvType)
+        }
+
         initViewModel()
     }
 

@@ -18,44 +18,78 @@ class DefaultMovieRepository(
 //                return result.map { movieModelMapper.toGetMovieModel(it) }
 //            }
 //        }
-        val movieList = movieApi.getPopularMovies().getMovieModels ?: emptyList()
-        return movieList.map { movieModelMapper.toGetMovieModel(it) }
+        return try {
+            val movieList = movieApi.getPopularMovies().getMovieModels ?: emptyList()
+            movieList.map { movieModelMapper.toGetMovieModel(it) }
+        } catch (e: Exception) {
+            emptyList()
+        }
     }
 
     /**
      * get List of Similar Movies when navigate movie detail
      */
     override suspend fun getSimilarMovies(movieId: Int): List<GetMovieModel> {
-        val movieList = movieApi.getSimilarMovies(movieId).getMovieModels ?: emptyList()
-        return movieList.map { movieModelMapper.toGetMovieModel(it) }
+
+        return try {
+            val movieList = movieApi.getSimilarMovies(movieId).getMovieModels ?: emptyList()
+            movieList.map { movieModelMapper.toGetMovieModel(it) }
+        } catch (e: Exception) {
+            emptyList()
+        }
+
     }
 
     /**
      * get List of Recommendations Movies when navigate movie detail
      */
     override suspend fun getRecommendationsMovies(movieId: Int): List<GetMovieModel> {
-        val movieList = movieApi.getRecommendationsMovies(movieId).getMovieModels ?: emptyList()
-        return movieList.map { movieModelMapper.toGetMovieModel(it) }
+        return try {
+            val movieList = movieApi.getRecommendationsMovies(movieId).getMovieModels ?: emptyList()
+            movieList.map { movieModelMapper.toGetMovieModel(it) }
+        } catch (e: Exception) {
+            emptyList()
+        }
+
     }
 
     override suspend fun getUpcomingMovieList(page: Int): List<GetMovieModel> {
-        val movieList = movieApi.getUpcomingMovies().getMovieModels ?: emptyList()
-        return movieList.map { movieModelMapper.toGetMovieModel(it) }
+        return try {
+            val movieList = movieApi.getUpcomingMovies().getMovieModels ?: emptyList()
+            movieList.map { movieModelMapper.toGetMovieModel(it) }
+        } catch (e: Exception) {
+            emptyList()
+        }
     }
 
     override suspend fun getNowPlayingMovies(page: Int): List<GetMovieModel> {
-        val movieList = movieApi.getNowPlayingMovies().getMovieModels ?: emptyList()
-        return movieList.map { movieModelMapper.toGetMovieModel(it) }
+        return try {
+            val movieList = movieApi.getNowPlayingMovies().getMovieModels ?: emptyList()
+            movieList.map { movieModelMapper.toGetMovieModel(it) }
+        } catch (e: Exception) {
+            emptyList()
+        }
+
     }
 
     override suspend fun getTrendingMovies(page: Int): List<GetMovieModel> {
-        val movieList = movieApi.getTrendingMovies().getMovieModels ?: emptyList()
-        return movieList.map { movieModelMapper.toGetMovieModel(it) }
+        return try {
+            val movieList = movieApi.getTrendingMovies().getMovieModels ?: emptyList()
+            movieList.map { movieModelMapper.toGetMovieModel(it) }
+        } catch (e: Exception) {
+            emptyList()
+        }
+
     }
 
     override suspend fun getTopRatedMovieList(page: Int): List<GetMovieModel> {
-        val movieList = movieApi.getTopRatedMovies().getMovieModels ?: emptyList()
-        return movieList.map { movieModelMapper.toGetMovieModel(it) }
+        return try {
+            val movieList = movieApi.getTopRatedMovies().getMovieModels ?: emptyList()
+            movieList.map { movieModelMapper.toGetMovieModel(it) }
+        } catch (e: Exception) {
+            emptyList()
+        }
+
     }
 
     override suspend fun getMovieDetail(movieId: Int): GetMovieModel {

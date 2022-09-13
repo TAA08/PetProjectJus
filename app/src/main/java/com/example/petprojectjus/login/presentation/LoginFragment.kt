@@ -1,14 +1,16 @@
 package com.example.petprojectjus.login.presentation
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.petprojectjus.MediaFragment
 import com.example.petprojectjus.R
 import com.example.petprojectjus.databinding.FragmentLoginBinding
-import com.example.petprojectjus.movie.presentation.movie.MovieFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -19,12 +21,25 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private val binding: FragmentLoginBinding
         get() = _binding ?: throw RuntimeException("LoginFragment is null")
 
+    private lateinit var prefSettings: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
+
     /**
      * словил краш когда забыл get()
      */
     private val etUserName get() = binding.etUsername
     private val etPassword get() = binding.etPassword
     private val bwLogin get() = binding.btnLogin
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        prefSettings =
+            context?.getSharedPreferences(APP_SETTINGS, Context.MODE_PRIVATE) as SharedPreferences
+        if (!prefSettings.getString(SESSION_ID_KEY, null).isNullOrBlank()) {
+            launchMediaFragment()
+        }
+        editor = prefSettings.edit()
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,17 +83,27 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     Toast.makeText(requireContext(), "Неверные данные", Toast.LENGTH_SHORT).show()
                 }
                 is SessionData -> {
-                    launchMovieFragment()
+                    sessionId = it.session
+                    putDataIntoPref(sessionId)
+                    launchMediaFragment()
+
                 }
             }
         }
     }
 
-    private fun launchMovieFragment() {
+    private fun launchMediaFragment() {
         requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.main_container, MovieFragment.newInstance())
+            .replace(R.id.main_container, MediaFragment.newInstance())
             .addToBackStack(null)
             .commit()
+    }
+
+    private fun putDataIntoPref(string: String) {
+        editor.putString(SESSION_ID_KEY, string)
+        editor.commit()
+        binding.etUsername.text = null
+        binding.etPassword.text = null
     }
 
 
@@ -86,5 +111,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         fun newInstance(): LoginFragment {
             return LoginFragment()
         }
+
+        const val NAME = "LoginFragment"
+
+        private var sessionId: String = ""
+        const val APP_SETTINGS = "Settings"
+        const val SESSION_ID_KEY = "SESSION_ID"
     }
 }

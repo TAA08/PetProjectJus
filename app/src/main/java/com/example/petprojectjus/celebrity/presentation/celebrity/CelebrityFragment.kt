@@ -41,8 +41,9 @@ class CelebrityFragment : Fragment(R.layout.fragment_celebrities) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getCelebrity(CelebrityType.TRENDING)
-        getCelebrity(CelebrityType.POPULAR)
+        for (celebrityType in CelebrityType.values()) {
+            getCelebrity(celebrityType)
+        }
         initAndObserveViewModel()
     }
 
