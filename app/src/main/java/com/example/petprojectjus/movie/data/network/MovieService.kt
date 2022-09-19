@@ -52,6 +52,8 @@ interface MovieService {
         @Query("language") language: String = LANGUAGE,
     ): GetMoviesListResponse
 
+
+
     companion object {
 
         private const val API_KEY = "2672c5e5006041431f2be6a17b6f7ceb"

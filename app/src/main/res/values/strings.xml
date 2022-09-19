@@ -25,4 +25,17 @@
     <string name="people_name">Имя человека</string>
     <string name="people_work">Актер</string>
     <string name="vote">20000</string>
+    <string name="movie_rating">7</string>
+    <string name="star">star</string>
+    <string name="movie_description">Описание фильма</string>
+    <string name="cast_amp_crew"><![CDATA[Cast&Crew]]></string>
+    <string name="video">Video</string>
+    <string name="information">Информация</string>
+    <string name="date_release">Дата релиза</string>
+    <string name="language">Оригинальный язык</string>
+    <string name="budget">Бюджет</string>
+    <string name="revenue">Сборы</string>
+    <string name="production">Производство</string>
+    <string name="recommendation">Рекомендуемые к просмотру</string>
+    <string name="similar">Похожие</string>
 </resources>
