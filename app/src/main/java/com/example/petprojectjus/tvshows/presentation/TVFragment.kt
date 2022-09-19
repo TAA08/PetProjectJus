@@ -31,6 +31,12 @@ class TVFragment : Fragment(R.layout.fragment_tv_show) {
     private val rvRated get() = binding.rvTopRatedTv
     private val rvTrend get() = binding.rvTrendingTv
 
+    private val tvAiring get() = binding.airingTodayTv
+    private val tvPopular get() = binding.allPopularTv
+    private val tvTrending get() = binding.allTrendingTv
+    private val tvTop get() = binding.allTopRatedTv
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,6 +50,21 @@ class TVFragment : Fragment(R.layout.fragment_tv_show) {
         super.onViewCreated(view, savedInstanceState)
         for (tvType in TVType.values()) {
             getTVType(tvType)
+        }
+
+        tvPopular.setOnClickListener {
+            launchEntertainmentTvFragment(TVType.POPULAR)
+        }
+
+        tvTop.setOnClickListener {
+            launchEntertainmentTvFragment(TVType.TOP_RATED)
+        }
+        tvTrending.setOnClickListener {
+            launchEntertainmentTvFragment(TVType.TRENDING)
+        }
+
+        tvAiring.setOnClickListener {
+            launchEntertainmentTvFragment(TVType.AIRING_TODAY)
         }
 
         initViewModel()
@@ -87,6 +108,13 @@ class TVFragment : Fragment(R.layout.fragment_tv_show) {
 
             }
         }
+    }
+
+    private fun launchEntertainmentTvFragment(tvType: TVType) {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, EntertainmentTvFragment.newInstance(tvType))
+            .addToBackStack(EntertainmentTvFragment.NAME)
+            .commit()
     }
 
     companion object {

@@ -45,6 +45,19 @@ class CelebrityFragment : Fragment(R.layout.fragment_celebrities) {
             getCelebrity(celebrityType)
         }
         initAndObserveViewModel()
+
+        tvPopularCelebrity.setOnClickListener {
+            launchEntertainmentCelebrityFragment(CelebrityType.POPULAR)
+        }
+
+        tvTrendingCelebrity.setOnClickListener {
+            launchEntertainmentCelebrityFragment(CelebrityType.TRENDING)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
     private fun getCelebrity(celebrityType: CelebrityType) {
@@ -74,10 +87,16 @@ class CelebrityFragment : Fragment(R.layout.fragment_celebrities) {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
+    private fun launchEntertainmentCelebrityFragment(celebrityType: CelebrityType) {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.fragment_container,
+                EntertainmentCelebrityFragment.newInstance(celebrityType)
+            )
+            .addToBackStack(null)
+            .commit()
     }
+
 
     companion object {
 

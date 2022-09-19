@@ -20,6 +20,7 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/movie_poster"/>
     </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/celebrity_name"
         android:layout_width="match_parent"
