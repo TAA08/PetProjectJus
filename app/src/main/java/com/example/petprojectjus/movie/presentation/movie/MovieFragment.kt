@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.petprojectjus.R
 import com.example.petprojectjus.databinding.FragmentMovieBinding
 import com.example.petprojectjus.login.presentation.LoginFragment
@@ -142,8 +143,11 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
             .commit()
     }
 
-    private fun retryLogin(){
-        requireActivity().supportFragmentManager.popBackStack(LoginFragment.NAME, 0)
+    private fun retryLogin() {
+        requireActivity().supportFragmentManager.popBackStack(
+            LoginFragment.NAME,
+            FragmentManager.POP_BACK_STACK_INCLUSIVE
+        )
     }
 
     companion object {

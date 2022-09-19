@@ -16,7 +16,8 @@ class CelebrityModelMapper {
             adult = from.adult ?: false,
             gender = from.gender ?: -1,
             id = from.id ?: -1,
-            known_for = from.knownFor?.map { toGetKnownForModel(it) }.orEmpty(),
+            // вместо лямбда выражений можно использовать ссылки на функции
+            known_for = from.knownFor?.map(::toGetKnownForModel).orEmpty(),
             known_for_department = from.knownForDepartment.orEmpty(),
             name = from.name.orEmpty(),
             popularity = from.popularity ?: 0.0,
