@@ -73,6 +73,8 @@ class EntertainmentMovieFragment : Fragment(R.layout.fragment_entertainment) {
                         MoviesType.TOPRATED -> toolbar.setTitle(TOP_RATED)
                         MoviesType.TRENDING -> toolbar.setTitle(TRENDING)
                         MoviesType.UPCOMING -> toolbar.setTitle(UPCOMING)
+                        MoviesType.SIMILAR -> toolbar.setTitle(SIMILAR)
+                        MoviesType.RECOMMENDATION -> toolbar.setTitle(RECOMMENDATION)
                     }
                 }
             }
@@ -89,6 +91,8 @@ class EntertainmentMovieFragment : Fragment(R.layout.fragment_entertainment) {
         const val TOP_RATED = R.string.top_rated
         const val TRENDING = R.string.trending
         const val UPCOMING = R.string.upcoming
+        const val SIMILAR = R.string.similar
+        const val RECOMMENDATION = R.string.recommendation
 
         fun newInstance(moviesType: MoviesType): EntertainmentMovieFragment {
             return EntertainmentMovieFragment().apply {

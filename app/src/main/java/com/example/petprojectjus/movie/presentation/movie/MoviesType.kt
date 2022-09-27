@@ -6,4 +6,6 @@ enum class MoviesType {
     TRENDING,
     TOPRATED,
     UPCOMING,
+    SIMILAR,
+    RECOMMENDATION
 }

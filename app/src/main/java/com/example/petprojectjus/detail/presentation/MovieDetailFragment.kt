@@ -12,6 +12,9 @@ import com.example.petprojectjus.detail.presentation.adapter.detail.MovieInfoAda
 import com.example.petprojectjus.detail.presentation.adapter.detail.SimilarMovieAdapter
 import com.example.petprojectjus.detail.presentation.dvo.MovieDetailDvo
 import com.example.petprojectjus.movie.presentation.IMAGE_URL
+import com.example.petprojectjus.movie.presentation.movie.EntertainmentMovieFragment
+import com.example.petprojectjus.movie.presentation.movie.MoviesType
+import com.example.petprojectjus.movie.presentation.movie.adapter.OnMovieClickListener
 import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -77,11 +80,11 @@ class MovieDetailFragment : Fragment(R.layout.fragment_movie_detail) {
         super.onViewCreated(view, savedInstanceState)
 
         tvAllSimilar.setOnClickListener {
-
+            launchEntertainmentMovieFragment(MoviesType.SIMILAR)
         }
 
         tvAllRecommendation.setOnClickListener {
-
+            launchEntertainmentMovieFragment(MoviesType.RECOMMENDATION)
         }
 
         tvCast.setOnClickListener {
@@ -118,11 +121,23 @@ class MovieDetailFragment : Fragment(R.layout.fragment_movie_detail) {
                         MovieDetailType.SIMILAR -> {
                             adapterSimilar.submitList(state.movieList)
                             rvSimilar.adapter = adapterSimilar
+                            adapterSimilar.onMovieClickListener = object : OnMovieClickListener {
+                                override fun onMovieClicked(movieId: Int) {
+                                    launchMovieDetailFragment(movieId)
+                                }
+                            }
 
                         }
                         MovieDetailType.RECOMMENDATION -> {
                             adapterRecommendation.submitList(state.movieList)
                             rvRecommendation.adapter = adapterRecommendation
+                            adapterRecommendation.onMovieClickListener =
+                                object : OnMovieClickListener {
+                                    override fun onMovieClicked(movieId: Int) {
+                                        launchMovieDetailFragment(movieId)
+                                    }
+
+                                }
                         }
                     }
                 }
@@ -137,6 +152,20 @@ class MovieDetailFragment : Fragment(R.layout.fragment_movie_detail) {
             viewModel.getMovieType(movieId = movieId, movieDetailType = movieType)
         }
 
+    }
+
+    private fun launchEntertainmentMovieFragment(moviesType: MoviesType) {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, EntertainmentMovieFragment.newInstance(moviesType))
+            .addToBackStack(EntertainmentMovieFragment.NAME)
+            .commit()
+    }
+
+    private fun launchMovieDetailFragment(movieId: Int) {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, newInstance(movieId))
+            .addToBackStack(null)
+            .commit()
     }
 
     private fun bindValue(movieDetail: MovieDetailDvo) {

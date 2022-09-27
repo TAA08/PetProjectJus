@@ -31,6 +31,10 @@ open class SimilarMovieAdapter :
             movieTitle.text = movie.title
             movieRelease.text = movie.releaseDate
             Picasso.get().load(IMAGE_URL + movie.posterPath).into(movieImage)
+
+            root.setOnClickListener {
+                onMovieClickListener?.onMovieClicked(movie.id)
+            }
         }
     }
 
