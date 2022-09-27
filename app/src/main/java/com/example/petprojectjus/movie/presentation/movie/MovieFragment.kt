@@ -9,10 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.petprojectjus.R
 import com.example.petprojectjus.databinding.FragmentMovieBinding
+import com.example.petprojectjus.detail.presentation.MovieDetailFragment
 import com.example.petprojectjus.login.presentation.LoginFragment
 import com.example.petprojectjus.movie.presentation.MovieData
 import com.example.petprojectjus.movie.presentation.Error
 import com.example.petprojectjus.movie.presentation.Progress
+import com.example.petprojectjus.movie.presentation.movie.adapter.OnMovieClickListener
 import com.example.petprojectjus.movie.presentation.movie.adapter.other.PopularMovieAdapter
 import com.example.petprojectjus.movie.presentation.movie.adapter.other.TrendingMovieAdapter
 import com.example.petprojectjus.movie.presentation.movie.adapter.other.UpcomingMovieAdapter
@@ -112,22 +114,52 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
                         MoviesType.POPULAR -> {
                             popularMovieAdapter.submitList(it.movieList)
                             rvPopularMovie.adapter = popularMovieAdapter
+                            popularMovieAdapter.onMovieClickListener =
+                                object : OnMovieClickListener {
+                                    override fun onMovieClicked(movieId: Int) {
+                                        launchMovieDetailFragment(movieId)
+                                    }
+
+                                }
                         }
                         MoviesType.PLAYING -> {
                             playingInTheatreAdapter.submitList(it.movieList)
                             rvPlayingNowMovie.adapter = playingInTheatreAdapter
+                            playingInTheatreAdapter.onMovieClickListener =
+                                object : OnMovieClickListener {
+                                    override fun onMovieClicked(movieId: Int) {
+                                        launchMovieDetailFragment(movieId)
+                                    }
+                                }
                         }
                         MoviesType.TRENDING -> {
                             trendingMovieAdapter.submitList(it.movieList)
                             rvTrendingMovie.adapter = trendingMovieAdapter
+                            trendingMovieAdapter.onMovieClickListener =
+                                object : OnMovieClickListener {
+                                    override fun onMovieClicked(movieId: Int) {
+                                        launchMovieDetailFragment(movieId)
+                                    }
+                                }
                         }
                         MoviesType.TOPRATED -> {
                             topRatedAdapter.submitList(it.movieList)
                             rvTopRatedMovie.adapter = topRatedAdapter
+                            topRatedAdapter.onMovieClickListener = object : OnMovieClickListener {
+                                override fun onMovieClicked(movieId: Int) {
+                                    launchMovieDetailFragment(movieId)
+                                }
+                            }
                         }
                         MoviesType.UPCOMING -> {
                             upcomingMovieAdapter.submitList(it.movieList)
                             rvUpcomingMovie.adapter = upcomingMovieAdapter
+                            upcomingMovieAdapter.onMovieClickListener =
+                                object : OnMovieClickListener {
+                                    override fun onMovieClicked(movieId: Int) {
+                                        launchMovieDetailFragment(movieId)
+                                    }
+                                }
                         }
                         else -> {}
                     }
@@ -140,6 +172,13 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, EntertainmentMovieFragment.newInstance(moviesType))
             .addToBackStack(EntertainmentMovieFragment.NAME)
+            .commit()
+    }
+
+    private fun launchMovieDetailFragment(movieId: Int) {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, MovieDetailFragment.newInstance(movieId))
+            .addToBackStack(null)
             .commit()
     }
 

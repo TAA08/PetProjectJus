@@ -7,42 +7,41 @@ class MovieDetailMapper {
     fun toGetMovieDetailModel(from: MovieDetailResponse): MovieDetail {
         return MovieDetail(
             adult = from.adult ?: false,
-            backdrop_path = from.backdropPath ?: "",
-            belongs_to_collection = toGetBelongCollectionModel(from.belongsToCollectionResponse),
+            backdropPath = from.backdropPath ?: "",
+            belongsToCollection = toGetBelongCollectionModel(from.belongsToCollectionResponse),
             budget = from.budget ?: -1,
             genres = from.genreResponses?.map { toGetGenre(it) } ?: emptyList(),
             homepage = from.homepage ?: "",
             id = from.id ?: -1,
-            imdb_id = from.imdbId ?: "",
-            original_language = from.originalLanguage ?: "",
-            original_title = from.originalTitle ?: "",
+            imdbId = from.imdbId ?: "",
+            originalLanguage = from.originalLanguage ?: "",
+            originalTitle = from.originalTitle ?: "",
             overview = from.overview ?: "",
             popularity = from.popularity ?: 0.0,
-            poster_path = from.posterPath ?: "",
-            production_companies = from.productionCompanies?.map { toGetProductionCompanies(it) }
+            posterPath = from.posterPath ?: "",
+            productionCompanies = from.productionCompanies?.map(::toGetProductionCompanies)
+                .orEmpty(),
+            productionCountries = from.productionCountries?.map { toGetProductionCountry(it) }
                 ?: emptyList(),
-            production_countries = from.productionCountries?.map { toGetProductionCountry(it) }
-                ?: emptyList(),
-            release_date = from.releaseDate ?: "",
+            releaseDate = from.releaseDate ?: "",
             revenue = from.revenue ?: -1,
             runtime = from.runtime ?: 0,
-            spoken_languages = from.spokenLanguageResponses?.map { toGetLanguage(it) }
-                ?: emptyList(),
+            spokenLanguages = from.spokenLanguageResponses?.map(::toGetLanguage) ?: emptyList(),
             status = from.status ?: "",
             tagline = from.tagline ?: "",
             title = from.title ?: "",
             video = from.video ?: false,
-            vote_average = from.voteAverage ?: 0.0,
-            vote_count = from.voteCount ?: 0
+            voteAverage = from.voteAverage ?: 0.0,
+            voteCount = from.voteCount ?: 0
         )
     }
 
     private fun toGetBelongCollectionModel(from: BelongsToCollectionResponse?): BelongsToCollection {
         return BelongsToCollection(
-            backdrop_path = from?.backdropPath ?: "",
+            backdropPath = from?.backdropPath ?: "",
             id = from?.id ?: -1,
             name = from?.name ?: "",
-            poster_path = from?.posterPath ?: ""
+            posterPath = from?.posterPath ?: ""
         )
     }
 
@@ -55,7 +54,7 @@ class MovieDetailMapper {
 
     private fun toGetLanguage(from: SpokenLanguageResponse?): SpokenLanguage {
         return SpokenLanguage(
-            english_name = from?.englishName ?: "",
+            englishName = from?.englishName ?: "",
             iso_639_1 = from?.iso6391 ?: "",
             name = from?.name ?: ""
         )
@@ -64,9 +63,9 @@ class MovieDetailMapper {
     private fun toGetProductionCompanies(from: ProductionCompanyResponse?): ProductionCompany {
         return ProductionCompany(
             id = from?.id ?: -1,
-            logo_path = from?.logoPath ?: "",
+            logoPath = from?.logoPath ?: "",
             name = from?.name ?: "",
-            origin_country = from?.originCountry ?: ""
+            originCountry = from?.originCountry ?: ""
         )
     }
 
@@ -74,6 +73,25 @@ class MovieDetailMapper {
         return ProductionCountry(
             iso_3166_1 = from?.iso31661 ?: "",
             name = from?.name ?: ""
+        )
+    }
+
+     fun toGetMovieModel(from: MovieResponse): MovieModel{
+        return MovieModel(
+            adult = from.adult ?: false,
+            backdropPath = from.backdropPath ?: "",
+            genreIds = from.genreIds ?: emptyList(),
+            id = from.id ?: 0,
+            originalLanguage = from.originalLanguage ?: "",
+            originalTitle = from.originalTitle ?: "",
+            overview = from.overview ?: "",
+            popularity = from.popularity ?: 0.0,
+            posterPath = from.posterPath ?: "",
+            releaseDate = from.releaseDate ?: "",
+            title = from.title ?: "",
+            video = from.video ?: false,
+            voteAverage = from.voteAverage ?: 0.0,
+            voteCount = from.voteCount ?: -1
         )
     }
 }

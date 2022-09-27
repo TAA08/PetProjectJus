@@ -38,4 +38,4 @@ val LoginModule = module {
 
 }
 
-private fun getLoginApi(): LoginService = RetrofitInstance().getLoginApi()
+private fun getLoginApi(): LoginService = RetrofitInstance().getServiceApi()

@@ -2,14 +2,14 @@ package com.example.petprojectjus.detail.domain.model
 
 data class Crew(
     val adult: Boolean,
-    val credit_id: String,
+    val creditId: String,
     val department: String,
     val gender: Int,
     val id: Int,
     val job: String,
-    val known_for_department: String,
+    val knownForDepartment: String,
     val name: String,
-    val original_name: String,
+    val originalName: String,
     val popularity: Double,
-    val profile_path: Any
+    val profilePath: Any
 )

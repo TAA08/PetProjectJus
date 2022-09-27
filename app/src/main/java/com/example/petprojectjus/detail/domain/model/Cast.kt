@@ -2,15 +2,15 @@ package com.example.petprojectjus.detail.domain.model
 
 data class Cast(
     val adult: Boolean,
-    val cast_id: Int,
+    val castId: Int,
     val character: String,
-    val credit_id: String,
+    val creditId: String,
     val gender: Int,
     val id: Int,
-    val known_for_department: String,
+    val knownForDepartment: String,
     val name: String,
     val order: Int,
-    val original_name: String,
+    val originalName: String,
     val popularity: Double,
-    val profile_path: Any
+    val profilePath: Any
 )

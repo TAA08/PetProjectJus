@@ -38,4 +38,4 @@ val CelebrityModule = module {
 
 }
 
-private fun getCelebrityApi(): CelebrityService = RetrofitInstance().getCelebrityApi()
+private fun getCelebrityApi(): CelebrityService = RetrofitInstance().getServiceApi()

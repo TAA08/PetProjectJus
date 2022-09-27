@@ -2,6 +2,7 @@ package com.example.petprojectjus.detail.data.network
 
 import com.example.petprojectjus.detail.data.network.modelDTO.CastCrewResponse
 import com.example.petprojectjus.detail.data.network.modelDTO.MovieDetailResponse
+import com.example.petprojectjus.detail.data.network.modelDTO.MovieResultResponse
 import com.example.petprojectjus.detail.data.network.modelDTO.TrailerResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -21,14 +22,14 @@ interface MovieDetailService {
         @Path("movie_id") id: Int,
         @Query("api_key") apiKey: String = API_KEY,
         @Query("language") language: String = LANGUAGE,
-    ): MovieDetailResponse
+    ): MovieResultResponse
 
     @GET("${MOVIE}/{$MOVIE_ID}/recommendations")
     suspend fun getRecommendationsMovies(
         @Path("movie_id") id: Int,
         @Query("api_key") apiKey: String = API_KEY,
         @Query("language") language: String = LANGUAGE,
-    ): MovieDetailResponse
+    ): MovieResultResponse
 
     @GET("${MOVIE}/{$MOVIE_ID}/credits")
     suspend fun getCastCrew(

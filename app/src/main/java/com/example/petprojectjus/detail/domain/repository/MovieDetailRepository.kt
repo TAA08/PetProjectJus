@@ -1,21 +1,19 @@
 package com.example.petprojectjus.detail.domain.repository
 
-import com.example.petprojectjus.detail.domain.model.Cast
-import com.example.petprojectjus.detail.domain.model.Crew
+import com.example.petprojectjus.detail.domain.model.CastCrew
 import com.example.petprojectjus.detail.domain.model.MovieDetail
-import com.example.petprojectjus.detail.domain.model.Result
+import com.example.petprojectjus.detail.domain.model.MovieModel
+import com.example.petprojectjus.detail.domain.model.Trailer
 
 interface MovieDetailRepository {
 
     suspend fun getMovieDetail(movieId: Int): MovieDetail
 
-    suspend fun getMovieCast(movieId: Int): List<Cast>
+    suspend fun getCastCrew(movieId: Int): CastCrew
 
-    suspend fun getMovieCrew(movieId: Int): List<Crew>
+    suspend fun getMovieTrailer(movieId: Int): Trailer
 
-    suspend fun getMovieTrailer(movieId: Int): List<Result>
+    suspend fun getSimilarMovie(movieId: Int): List<MovieModel>
 
-    suspend fun getSimilarMovie(movieId: Int): MovieDetail
-
-    suspend fun getRecommendMovie(movieId: Int): MovieDetail
+    suspend fun getRecommendMovie(movieId: Int): List<MovieModel>
 }

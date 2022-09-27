@@ -22,7 +22,7 @@ class TrailerMapper {
             key = from?.key ?: "",
             name = from?.name ?: "",
             official = from?.official ?: false,
-            published_at = from?.publishedAt ?: "",
+            publishedAt = from?.publishedAt ?: "",
             site = from?.site ?: "",
             size = from?.size ?: 0,
             type = from?.type ?: ""

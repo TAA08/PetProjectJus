@@ -19,12 +19,14 @@
                 android:id="@+id/movie_poster"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
                 android:contentDescription="@string/movie_poster"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
@@ -66,7 +68,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:max="5"
-                            android:rating="3.5"
+                            android:rating="1"
                             android:scaleX=".7"
                             android:scaleY=".7"
                             android:transformPivotX="0dp"
@@ -74,7 +76,7 @@
 
                         <TextView
                             android:id="@+id/vote"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/vote"
                             android:textColor="@color/teal_200"
@@ -82,6 +84,7 @@
 
                         <ImageView
                             android:layout_width="wrap_content"
+                            android:layout_marginStart="36dp"
                             android:layout_height="wrap_content"
                             android:contentDescription="@string/star"
                             android:src="@drawable/ic_baseline_star_24" />

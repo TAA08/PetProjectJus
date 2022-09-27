@@ -2,6 +2,7 @@ package com.example.petprojectjus
 
 import android.app.Application
 import com.example.petprojectjus.celebrity.di.CelebrityModule
+import com.example.petprojectjus.detail.di.DetailModule
 import com.example.petprojectjus.login.di.LoginModule
 import com.example.petprojectjus.movie.di.MovieModule
 import com.example.petprojectjus.tvshows.di.TVModule
@@ -20,7 +21,7 @@ class MovieApp : Application() {
                 LoginModule,
                 TVModule,
                 CelebrityModule,
-
+                DetailModule,
                 )
         }
     }

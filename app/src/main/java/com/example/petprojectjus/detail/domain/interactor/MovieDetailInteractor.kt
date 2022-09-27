@@ -1,27 +1,22 @@
 package com.example.petprojectjus.detail.domain.interactor
 
-import com.example.petprojectjus.detail.domain.model.Cast
-import com.example.petprojectjus.detail.domain.model.Crew
-import com.example.petprojectjus.detail.domain.model.MovieDetail
-import com.example.petprojectjus.detail.domain.model.Result
+import com.example.petprojectjus.detail.domain.model.*
 import com.example.petprojectjus.detail.domain.repository.MovieDetailRepository
 
 class MovieDetailInteractor(
-    val movieDetailRepository: MovieDetailRepository
+    private val movieDetailRepository: MovieDetailRepository
 ) {
     suspend fun getMovieDetail(movieId: Int): MovieDetail =
         movieDetailRepository.getMovieDetail(movieId)
 
-    suspend fun getMovieCast(movieId: Int): List<Cast> = movieDetailRepository.getMovieCast(movieId)
-
-    suspend fun getMovieCrew(movieId: Int): List<Crew> = movieDetailRepository.getMovieCrew(movieId)
-
-    suspend fun getMovieTrailer(movieId: Int): List<Result> =
+    suspend fun getMovieTrailer(movieId: Int): Trailer =
         movieDetailRepository.getMovieTrailer(movieId)
 
-    suspend fun getSimilarMovie(movieId: Int): MovieDetail =
+    suspend fun getSimilarMovie(movieId: Int): List<MovieModel> =
         movieDetailRepository.getSimilarMovie(movieId)
 
-    suspend fun getRecommendMovie(movieId: Int): MovieDetail =
+    suspend fun getRecommendMovie(movieId: Int): List<MovieModel> =
         movieDetailRepository.getRecommendMovie(movieId)
+
+    suspend fun getCastCrew(movieId: Int): CastCrew = movieDetailRepository.getCastCrew(movieId)
 }

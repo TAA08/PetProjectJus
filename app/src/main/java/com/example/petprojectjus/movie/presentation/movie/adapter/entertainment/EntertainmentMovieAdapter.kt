@@ -41,7 +41,7 @@ class EntertainmentMovieAdapter :
             Picasso.get().load(IMAGE_URL + movie.posterPath).into(movieImage)
 
             root.setOnClickListener {
-                onMovieClickListener?.onMovieClicked(movie)
+                onMovieClickListener?.onMovieClicked(movie.id)
 
             }
         }

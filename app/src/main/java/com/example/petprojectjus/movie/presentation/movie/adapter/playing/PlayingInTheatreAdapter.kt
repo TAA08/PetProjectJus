@@ -32,7 +32,7 @@ class PlayingInTheatreAdapter :
             Picasso.get().load(IMAGE_URL + movie.backdropPath).into(movieImage)
 
             root.setOnClickListener {
-                onMovieClickListener?.onMovieClicked(movie)
+                onMovieClickListener?.onMovieClicked(movie.id)
 
             }
         }

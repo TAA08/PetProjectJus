@@ -35,4 +35,5 @@ val MovieModule = module {
     }
 }
 
-private fun getMovieApi(): MovieService = RetrofitInstance().getMovieApi()
+//происходит овеществление обобщенного типа в MovieService
+private fun getMovieApi()  = RetrofitInstance().getServiceApi<MovieService>()
